@@ -7,3 +7,13 @@
   ![Images/grouby02.png](Images/groupby02.png)
   
 * What is an equivalent SQL query? Instead of the sum, find the mean duration by state.
+
+### Answer
+`SELECT`
+    `state,`
+    `AVG(duration) As mean_duration`    
+`FROM` 
+    `usa_ufo`
+`GROUP BY `
+    `state`
+   
