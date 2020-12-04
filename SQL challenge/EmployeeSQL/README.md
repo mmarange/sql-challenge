@@ -1,99 +1,72 @@
 # SQL Homework - Employee Database: A Mystery in Two Parts
 
-![sql.png](sql.png)
+## Key take aways
 
-## Background
+1. The database is a fake employee database because the employee ID number 499942 returns a fake record
 
-It is a beautiful spring day, and it is two weeks since you have been hired as a new data engineer at Pewlett Hackard. Your first major task is a research project on employees of the corporation from the 1980s and 1990s. All that remain of the database of employees from that period are six CSV files.
+2. Employees with titles Staff and senior staff are the most paid 
 
-In this assignment, you will design the tables to hold data in the CSVs, import the CSVs into a SQL database, and answer questions about the data. In other words, you will perform:
+3. The majority of employees earn between $40000 and $50000.
 
-1. Data Engineering
+4. Intrestingly in this database males and females earn the same average salary
 
-2. Data Analysis
-
-### Before You Begin
-
-1. Use the `sql-challenge` repository that you created for Part 1 of this assignment.
-
-2. Inside your local git repository, create a directory for the SQL challenge. Use a folder name to correspond to the challenge: **EmployeeSQL**.
-
-3. Add your files to this folder.
-
-4. Push the above changes to GitHub.
-
-## Instructions
-
-#### Data Modeling
-
-Inspect the CSVs and sketch out an ERD of the tables. Feel free to use a tool like [http://www.quickdatabasediagrams.com](http://www.quickdatabasediagrams.com).
-
-#### Data Engineering
-
-* Use the information you have to create a table schema for each of the six CSV files. Remember to specify data types, primary keys, foreign keys, and other constraints.
-
-  * For the primary keys check to see if the column is unique, otherwise create a [composite key](https://en.wikipedia.org/wiki/Compound_key). Which takes to primary keys in order to uniquely identify a row.
-  * Be sure to create tables in the correct order to handle foreign keys.
-
-* Import each CSV file into the corresponding SQL table. **Note** be sure to import the data in the same order that the tables were created and account for the headers when importing to avoid errors.
+### Tables of Query Results
 
 #### Data Analysis
 
-Once you have a complete database, do the following:
-
 1. List the following details of each employee: employee number, last name, first name, sex, and salary.
+
+ ![Results_table1](Results_table1.PNG)
 
 2. List first name, last name, and hire date for employees who were hired in 1986.
 
+![Results_table2](Results_table2.PNG)
+
 3. List the manager of each department with the following information: department number, department name, the manager's employee number, last name, first name.
+
+![Results_table3](Results_table3.PNG)
 
 4. List the department of each employee with the following information: employee number, last name, first name, and department name.
 
+![Results_table4](Results_table4.PNG)
+
 5. List first name, last name, and sex for employees whose first name is "Hercules" and last names begin with "B."
+![Results_table5](Results_table5.PNG)
 
 6. List all employees in the Sales department, including their employee number, last name, first name, and department name.
 
+![Results_table6](Results_table6.PNG)
+
 7. List all employees in the Sales and Development departments, including their employee number, last name, first name, and department name.
 
+![Results_table7](Results_table7.PNG)
+
 8. In descending order, list the frequency count of employee last names, i.e., how many employees share each last name.
+![Results_table8](Results_table8.PNG)
 
-## Bonus (Optional)
+## Bonus
 
-As you examine the data, you are overcome with a creeping suspicion that the dataset is fake. You surmise that your boss handed you spurious data in order to test the data engineering skills of a new employee. To confirm your hunch, you decide to take the following steps to generate a visualization of the data, with which you will confront your boss:
+1. Creating a histogram to visualize the most common salary ranges for employees.
 
-1. Import the SQL database into Pandas. (Yes, you could read the CSVs directly in Pandas, but you are, after all, trying to prove your technical mettle.) This step may require some research. Feel free to use the code below to get started. Be sure to make any necessary modifications for your username, password, host, port, and database name:
+![Results_tabl](Histogram_of_Salaries.png)
 
-   ```sql
-   from sqlalchemy import create_engine
-   engine = create_engine('postgresql://localhost:5432/<your_db_name>')
-   connection = engine.connect()
-   ```
+2. Creating a bar chart of average salary by title.
 
-* Consult [SQLAlchemy documentation](https://docs.sqlalchemy.org/en/latest/core/engines.html#postgresql) for more information.
+![salary](BarChart.png)
 
-* If using a password, do not upload your password to your GitHub repository. See [https://www.youtube.com/watch?v=2uaTPmNvH0I](https://www.youtube.com/watch?v=2uaTPmNvH0I) and [https://help.github.com/en/github/using-git/ignoring-files](https://help.github.com/en/github/using-git/ignoring-files) for more information.
+3. Does the company practice fair wage? (personal question)
+ Yes
 
-2. Create a histogram to visualize the most common salary ranges for employees.
+![salary2](BarChart_sex_salary.png)
 
-3. Create a bar chart of average salary by title.
 
-## Epilogue
+## The fake record
 
-Evidence in hand, you march into your boss's office and present the visualization. With a sly grin, your boss thanks you for your work. On your way out of the office, you hear the words, "Search your ID number." You look down at your badge to see that your employee ID number is 499942.
+![record](My_employee_record.PNG)
 
-## Submission
+## Database Design
 
-* Create an image file of your ERD.
-
-* Create a `.sql` file of your table schemata.
-
-* Create a `.sql` file of your queries.
-
-* (Optional) Create a Jupyter Notebook of the bonus analysis.
-
-* Create and upload a repository with the above files to GitHub and post a link on BootCamp Spot.
-
-* Ensure your repository has regular commits (i.e. 20+ commits) and a thorough README.md file
+![ERD_EmployeeSQL](ERD_EmployeeSQL.png)
 
 ### Copyright
 
