@@ -62,3 +62,50 @@ inner join departments
 /*
 5. List first name, last name, and sex for employees whose first name is "Hercules" and last names begin with "B."
 */
+Select
+	 first_name
+	 ,last_name
+	 ,sex
+From
+	employees
+Where first_name = 'Hercules'
+And last_name like 'B%'
+
+/*
+6. List all employees in the Sales department, 
+including their employee number, last name, first name, and department name.
+*/
+
+/*
+7. List all employees in the Sales and Development departments, 
+including their employee number, last name, first name, and department name.
+*/
+
+
+/*
+8. In descending order, list the frequency count of employee last names, i.e., how many employees share each last name.
+*/
+Select
+	last_name as Unique_last_name
+	,count(last_name) as Count
+	
+From
+	employees
+Group by last_name
+Order by Count DESC
+
+
+Drop View employees_db
+Create View employees_db AS
+Select
+	--emp_no AS "employee number"
+	--,last_name
+	--,first_name
+	,sex
+	,title
+	,salary
+From
+	employees e
+full join salaries
+	using(emp_no)
+full join titles
